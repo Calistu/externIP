@@ -64,6 +64,7 @@ int main(int argc,char *argv[])
 		pos_a++;
 		pos_b++;
 	}
+	externip[pos_a] = '\0';
 	if(quiet!=1)
 	printf("	Your extern ip: ");
 	printf("%s\n",externip);
