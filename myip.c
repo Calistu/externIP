@@ -13,18 +13,18 @@ int main(int argc,char *argv[])
     char *hostname;
     struct hostent *host;
     struct sockaddr_in ifconfig;
-    int sockfd, treat,ascii=0,lines=0,pos_a=0,pos_b=0;
+    int sockfd, treat,pos_a=0,pos_b=0;
 	char externip[15] = "";
     char buffer[400] = "";
     int args(int,char **);
     args(argc,argv);
     host = gethostbyname(HOST);
-    hostname = inet_ntoa(*(struct in_addr*)host->h_addr_list[0]);
-    if(host==NULL)
+      if(host==NULL)
     {
         printf("Cant connect on the searcher host\n");
         exit(1);
     }
+    hostname = inet_ntoa(*(struct in_addr*)host->h_addr_list[0]);
     if(quiet!=1)
 	{
 		printf("	----------------------------------------------------\n");
@@ -34,7 +34,7 @@ int main(int argc,char *argv[])
     ifconfig.sin_family = AF_INET;
     ifconfig.sin_addr.s_addr = inet_addr(hostname); 
     ifconfig.sin_port = htons(80);
-    memset(ifconfig.sin_zero,0,strlen(ifconfig.sin_zero));
+    memset(ifconfig.sin_zero,0,8);
     sockfd = socket(AF_INET,SOCK_STREAM,0);
     if(sockfd == -1)
     {
@@ -42,7 +42,7 @@ int main(int argc,char *argv[])
         exit(1);
     }
     treat = connect(sockfd,(struct sockaddr*)&ifconfig,sizeof(ifconfig));
-	if(treat == -1)
+	if(treat != 0)
 	{
 		printf("	connect: without connection\n");
 		exit(1);
@@ -71,7 +71,7 @@ int main(int argc,char *argv[])
 	if(quiet!=1)
 	printf("	----------------------------------------------------\n");
 	close(sockfd);
-	exit(1);
+	return 0;
 }
 int critic(char ascii)
 {
@@ -114,4 +114,5 @@ int args(int argc,char *argv[])
 			}
 		}
 	}
+	return 0;
 }
