@@ -100,7 +100,7 @@ int args(int argc,char *argv[])
 			else
 			if(strcmp("-h\n",argv[cont])==0||strcmp("-h",argv[cont])==0)
 			{
-				printf("\n	its simple, ./myip [-q || -h] \n");
+				printf("\n	its simple! ./myip [-q || -h] \n");
 				printf("	-q <quiet> - avoid print messages on screen\n");
 				printf("	-h <help> - show this help screen\n");
 				exit(0); 
