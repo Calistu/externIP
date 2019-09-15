@@ -8,4 +8,4 @@ install using only:<br>
 tip: you can do a network scan using the quiet mode, the myip ll print your ip,
 so the nmap ll take the output
 
-nmap `myip -q` 
+nmap \`myip -q\` 
