@@ -6,6 +6,7 @@ install using only:<br>
 <b>gcc myip.c -o /bin/myip</b> 
 
 tip: you can do a network scan using the quiet mode, the myip ll print your ip,
-so the nmap ll take the output
+so you can pass the output to others programs with pipe
 
-nmap \`myip -q\` 
+ex: nmap \`myip -q\` 
+ex: ping \`myip -q\`
