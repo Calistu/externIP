@@ -8,5 +8,5 @@ install using only:<br>
 tip: you can do a network scan using the quiet mode, the myip ll print your ip,
 so you can pass the output to others programs with pipe
 
-ex: nmap \`myip -q\` 
-ex: ping \`myip -q\`
+ex: nmap \`myip -q\` <br>
+ex: ping \`myip -q\` <br>
